@@ -21,7 +21,7 @@ class ProductPage(BasePage):
 
         button_add = self.browser.find_element(*ProductPageLocators.BUTTON_ADD_TO_BASKET)
         button_add.click()
-        self.solve_quiz_and_get_code()
+        #self.solve_quiz_and_get_code()
 
     def check_product_is_added(self):
         assert self.is_element_present(*ProductPageLocators.PRODUCT_NAME_IN_BASKET), "No message about product added to basket"
@@ -34,3 +34,9 @@ class ProductPage(BasePage):
 
         added_price = self.browser.find_element(*ProductPageLocators.PRODUCT_PRICE_IN_BASKET).text
         assert added_price == self.product_price, "Product Price in basket is not correct"
+        
+    def should_not_be_success_message(self):
+        assert self.is_not_element_present(*ProductPageLocators.SUCCESS_MESSAGE), "Success message is presented, but should not be"
+        
+    def should_dissapear_of_success_message(self):
+        assert self.is_disappeared(*ProductPageLocators.SUCCESS_MESSAGE), "Success message is not disappeared, but should not be"
