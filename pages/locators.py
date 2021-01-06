@@ -3,9 +3,11 @@ from selenium.webdriver.common.by import By
 class BasePageLocators :
     LOGIN_LINK = (By.CSS_SELECTOR, "#login_link")
     LOGIN_LINK_INVALID = (By.CSS_SELECTOR, "#login_link_inc")
+    
+    BASKET_LINK = (By.CSS_SELECTOR, "div.basket-mini>span.btn-group>a")
 
 class MainPageLocators:
-    LOGIN_LINK = (By.CSS_SELECTOR, "#login_link")
+    pass
     
 class LoginPageLocators:
     LOGIN_FIELD = (By.CSS_SELECTOR, "input#id_login-username")
@@ -21,4 +23,7 @@ class ProductPageLocators:
     
     SUCCESS_MESSAGE = (By.CSS_SELECTOR, "div#messages>div.alert-success:first-child")
     
-    
+class BasketPageLocators:    
+    BASKET_NOT_EMPTY_TITLE = (By.CSS_SELECTOR, "div#content_inner>div.basket-title")
+    BASKET_NOT_EMPTY_FORM = (By.CSS_SELECTOR, "form#basket_formset")
+    TEXT_BASKET_EMPTY = (By.CSS_SELECTOR, "div#content_inner>p:only-of-type")
